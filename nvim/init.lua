@@ -59,6 +59,7 @@ vim.fn["ddc#custom#patch_global"]({
 		file = {
 			mark = "[F]",
 			forceCompletionPattern = "\\S/\\S*",
+			matchers = { "matcher_head" },
 		},
 	},
 })
