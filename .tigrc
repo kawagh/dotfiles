@@ -1,0 +1,1 @@
+bind generic y @sh -c "echo %(commit) | xsel --clipboard --input"
