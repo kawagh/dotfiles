@@ -1,0 +1,9 @@
+[include]
+    path = ~/.gitconfig.local
+[core]
+    editor = nvim
+[rebase]
+    autosquash = true
+    autostash = true
+[pull]
+    autostash = true
