@@ -7,3 +7,5 @@
     autostash = true
 [pull]
     autostash = true
+[rerere]
+    enabled = true
