@@ -1,0 +1,15 @@
+set highlightedyank
+set commentary
+set surround
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set clipboard+=unnamed
+let mapleader="\<Space>"
+
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+nnoremap <silent> <leader>t :sh<CR>
+nnoremap <Tab> :<C-u>action NextTab<CR>
+nnoremap <S-Tab> :<C-u>action PreviousTab<CR>
+
