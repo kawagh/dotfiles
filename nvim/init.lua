@@ -33,6 +33,7 @@ Plug("https://github.com/Shougo/ddc-filter-matcher_head")
 Plug("https://github.com/Shougo/ddc-filter-sorter_rank")
 Plug("https://github.com/matsui54/denops-popup-preview.vim")
 Plug("https://github.com/ckipp01/stylua-nvim")
+Plug("https://github.com/mattn/emmet-vim")
 
 vim.call("plug#end")
 
