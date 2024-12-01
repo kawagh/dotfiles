@@ -82,6 +82,10 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.laststatus = 0
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Leader>f", "<cmd>Files<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>g", "<cmd>GFiles<CR>", { noremap = true })
