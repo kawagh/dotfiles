@@ -34,7 +34,7 @@ Plug("https://github.com/Shougo/ddc-filter-sorter_rank")
 Plug("https://github.com/matsui54/denops-popup-preview.vim")
 Plug("https://github.com/ckipp01/stylua-nvim")
 Plug("https://github.com/mattn/emmet-vim")
-
+Plug("https://github.com/ethancarlsson/nvim-hurl.nvim")
 vim.call("plug#end")
 
 vim.fn["ddc#custom#patch_global"]({
