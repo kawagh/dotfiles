@@ -29,6 +29,7 @@ Plug("https://github.com/Shougo/ddc-ui-native")
 Plug("https://github.com/LumaKernel/ddc-source-file")
 Plug("https://github.com/delphinus/ddc-source-tmux")
 Plug("https://github.com/Shougo/ddc-source-lsp")
+Plug("https://github.com/Shougo/ddc-source-around")
 Plug("https://github.com/Shougo/ddc-filter-matcher_head")
 Plug("https://github.com/Shougo/ddc-filter-sorter_rank")
 Plug("https://github.com/matsui54/denops-popup-preview.vim")
@@ -43,6 +44,7 @@ vim.fn["ddc#custom#patch_global"]({
 		"lsp",
 		"file",
 		"tmux",
+		"around",
 	},
 	sourceOptions = {
 		_ = {
@@ -60,6 +62,10 @@ vim.fn["ddc#custom#patch_global"]({
 		file = {
 			mark = "[F]",
 			forceCompletionPattern = "\\S/\\S*",
+			matchers = { "matcher_head" },
+		},
+		around = {
+			mark = "[A]",
 			matchers = { "matcher_head" },
 		},
 	},
