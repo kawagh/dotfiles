@@ -1,9 +1,12 @@
 #!/bin/sh
-ln -sfv ${PWD}/nvim/init.lua ~/.config/nvim/init.lua
-ln -sfv ${PWD}/.tmux.conf ~/.tmux.conf
-ln -sfv ${PWD}/.ideavimrc ~/.ideavimrc
-ln -sfv ${PWD}/.gitconfig ~/.gitconfig
-ln -sfv ${PWD}/.tigrc ~/.tigrc
-ln -sfv ${PWD}/.zshrc ~/.zshrc
+
+
+DIR=$(dirname "$(realpath "$0")")
+ln -sfv ${DIR}/nvim/init.lua ~/.config/nvim/init.lua
+ln -sfv ${DIR}/.tmux.conf ~/.tmux.conf
+ln -sfv ${DIR}/.ideavimrc ~/.ideavimrc
+ln -sfv ${DIR}/.gitconfig ~/.gitconfig
+ln -sfv ${DIR}/.tigrc ~/.tigrc
+ln -sfv ${DIR}/.zshrc ~/.zshrc
 mkdir -p ~/.config/zabrze
-ln -sfv ${PWD}/.config/zabrze/config.yaml ~/.config/zabrze/config.yaml
+ln -sfv ${DIR}/.config/zabrze/config.yaml ~/.config/zabrze/config.yaml
