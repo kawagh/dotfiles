@@ -88,8 +88,19 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Leader>f", "<cmd>Files<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>g", "<cmd>GFiles<CR>", { noremap = true })
+
+local function is_inside_git_repository()
+	local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
+	local result = handle:read("*a")
+	handle:close()
+	return result ~= ""
+end
+
+if is_inside_git_repository() then
+	vim.keymap.set("n", "<Leader>f", "<cmd>GFiles<CR>", { noremap = true })
+else
+	vim.keymap.set("n", "<Leader>f", "<cmd>Files<CR>", { noremap = true })
+end
 vim.keymap.set("n", "<Leader>F", "<cmd>Rg<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true })
