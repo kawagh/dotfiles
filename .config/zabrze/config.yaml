@@ -2,3 +2,35 @@ abbrevs:
   - name: git
     abbr: g
     snippet: git
+  - name: ga
+    abbr: ga
+    snippet: git add
+  - name: gst
+    abbr: gst
+    snippet: git status
+  - name: gl
+    abbr: gl
+    snippet: git log --oneline
+  - name: glp
+    abbr: glp
+    snippet: git log -p
+  - name: gr
+    abbr: gr
+    snippet: cd $(git rev-parse --show-toplevel)
+  - name: git commit -m
+    abbr: gcm
+    snippet: git commit -m '{}'
+  - name: git commit --amend
+    abbr: gca
+    snippet: git commit --amend
+  - name: gd
+    abbr: gd
+    snippet: git diff
+  - name: gdc
+    abbr: gdc
+    snippet: git diff --cached
+  - name: git checkout
+    abbr: co
+    snippet: checkout
+    global: true
+    context: '^git\s'
