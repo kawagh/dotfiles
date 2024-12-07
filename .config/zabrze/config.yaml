@@ -34,3 +34,12 @@ abbrevs:
     snippet: checkout
     global: true
     context: '^git\s'
+  - name: gg
+    abbr: gg
+    snippet: cd $(ghq list -p | fzf)
+  - name: ls
+    abbr: ls
+    snippet: ls --color=auto
+  - name: ll
+    abbr: ll
+    snippet: ls -alF
