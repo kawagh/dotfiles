@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 
 config.font_size = 13.0
 config.color_scheme = "Ubuntu"
+config.window_decorations = "RESIZE"
 config.leader = { key = "q", mods = "CTRL" }
 config.keys = {
 	{
