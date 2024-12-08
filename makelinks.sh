@@ -10,3 +10,4 @@ ln -sfv ${DIR}/.tigrc ~/.tigrc
 ln -sfv ${DIR}/.zshrc ~/.zshrc
 mkdir -p ~/.config/zabrze
 ln -sfv ${DIR}/.config/zabrze/config.yaml ~/.config/zabrze/config.yaml
+ln -sfv ${DIR}/nvim/.luarc.json ~/.config/nvim/.luarc.json
