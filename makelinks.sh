@@ -10,6 +10,6 @@ ln -sfv ${DIR}/.gitconfig ~/.gitconfig
 ln -sfv ${DIR}/.tigrc ~/.tigrc
 ln -sfv ${DIR}/.zshrc ~/.zshrc
 mkdir -p ~/.config/zabrze
-ln -sfv ${DIR}/.config/zabrze/config.yaml ~/.config/zabrze/config.yaml
+ln -sfv ${DIR}/config/zabrze/config.yaml ~/.config/zabrze/config.yaml
 mkdir -p ~/.config/wezterm
 ln -sfv ${DIR}/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
