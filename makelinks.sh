@@ -11,3 +11,5 @@ ln -sfv ${DIR}/.zshrc ~/.zshrc
 mkdir -p ~/.config/zabrze
 ln -sfv ${DIR}/.config/zabrze/config.yaml ~/.config/zabrze/config.yaml
 ln -sfv ${DIR}/nvim/.luarc.json ~/.config/nvim/.luarc.json
+mkdir -p ~/.config/wezterm
+ln -sfv ${DIR}/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
