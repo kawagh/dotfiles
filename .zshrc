@@ -7,7 +7,9 @@ precmd () { vcs_info }
 PROMPT='%F{cyan}%~ %F{magenta}${vcs_info_msg_0_}
 %F{cyan}$%F{white} '
 
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+if [[ "$(uname)" == "Darwin" ]]; then
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+fi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
