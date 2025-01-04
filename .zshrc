@@ -17,5 +17,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
 eval "$(zabrze init --bind-keys)"
+eval "$(gh completion -s zsh)"
 
 export MENT_EDITOR="nvim"
