@@ -12,6 +12,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 if [[ "$(uname)" == "Linux" ]]; then
     export PATH="$HOME/development/flutter/bin:$PATH"
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
