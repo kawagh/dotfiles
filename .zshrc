@@ -15,6 +15,9 @@ if [[ "$(uname)" == "Linux" ]]; then
 fi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 eval "$(zabrze init --bind-keys)"
 eval "$(gh completion -s zsh)"
