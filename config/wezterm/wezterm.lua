@@ -3,7 +3,11 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-config.font_size = 13.0
+if wezterm.target_triple == "aarch64-apple-darwin" then
+	config.font_size = 13.0
+else
+	config.font_size = 11.0
+end
 config.color_scheme = "Ubuntu"
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
