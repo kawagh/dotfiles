@@ -1,0 +1,13 @@
+[
+    // サイドバーの表示の入れ替え
+    {
+        "key": "ctrl+e",
+        "command": "workbench.view.explorer",
+        "when": "!explorerViewletVisible"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "explorerViewletVisible"
+    },
+]
