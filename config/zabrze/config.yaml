@@ -1,4 +1,7 @@
 abbrevs:
+  - name: docker
+    abbr: d
+    snippet: docker
   - name: git
     abbr: g
     snippet: git
