@@ -9,6 +9,7 @@ PROMPT='%F{cyan}%~ %F{magenta}${vcs_info_msg_0_}
 
 if [[ "$(uname)" == "Darwin" ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 fi
 if [[ "$(uname)" == "Linux" ]]; then
     export PATH="$HOME/development/flutter/bin:$PATH"
