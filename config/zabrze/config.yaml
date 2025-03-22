@@ -2,6 +2,19 @@ abbrevs:
   - name: docker
     abbr: d
     snippet: docker
+
+  # docker context abbrevs
+  - name: docker container
+    abbr: cn
+    snippet: container
+    global: true
+    context: '^docker\s'
+  - name: docker compose
+    abbr: cm
+    snippet: compose
+    global: true
+    context: '^docker\s'
+
   - name: git
     abbr: g
     snippet: git
@@ -32,11 +45,14 @@ abbrevs:
   - name: gdc
     abbr: gdc
     snippet: git diff --cached
+
+  # git context abbrevs
   - name: git checkout
     abbr: co
     snippet: checkout
     global: true
     context: '^git\s'
+
   - name: gg
     abbr: gg
     snippet: cd $(ghq list -p | fzf)
