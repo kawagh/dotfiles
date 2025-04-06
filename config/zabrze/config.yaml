@@ -53,6 +53,13 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  - name: git ls-files --others --exclude-standard | xargs git add
+    # git管理下にない新規作成したファイルをaddする
+    abbr: an
+    snippet: ls-files --others --exclude-standard | xargs git add
+    global: true
+    context: '^git\s'
+
   - name: gg
     abbr: gg
     snippet: cd $(ghq list -p | fzf)
