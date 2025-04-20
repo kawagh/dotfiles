@@ -37,6 +37,7 @@ Plug("https://github.com/kat0h/bufpreview.vim", { ["do"] = "deno task prepare" }
 Plug("https://github.com/ckipp01/stylua-nvim")
 Plug("https://github.com/mattn/emmet-vim")
 Plug("https://github.com/ethancarlsson/nvim-hurl.nvim")
+Plug("https://github.com/stevearc/conform.nvim")
 vim.call("plug#end")
 
 vim.fn["ddc#custom#patch_global"]({
@@ -117,6 +118,13 @@ vim.keymap.set("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "L", "<Plug>(fern-action-expand-tree)")
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})
+
 require("bufferline").setup({})
 require("gitsigns").setup()
 require("mason").setup()
@@ -131,3 +139,8 @@ require("lspconfig").volar.setup({})
 require("lspconfig").ts_ls.setup({})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").lua_ls.setup({})
+require("conform").setup({
+	formatters_by_ft = {
+		python = { "ruff_format" },
+	},
+})
