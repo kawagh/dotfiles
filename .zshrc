@@ -25,6 +25,7 @@ export SAVEHIST=100000
 eval "$(zabrze init --bind-keys)"
 eval "$(gh completion -s zsh)"
 eval "$(uv generate-shell-completion zsh)"
+eval "$(task --completion zsh)"
 
 export MENT_EDITOR="nvim"
 
