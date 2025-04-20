@@ -120,7 +120,13 @@ vim.keymap.set("n", "L", "<Plug>(fern-action-expand-tree)")
 require("bufferline").setup({})
 require("gitsigns").setup()
 require("mason").setup()
-require("lspconfig").pyright.setup({})
+require("lspconfig").pyright.setup({
+	settings = {
+		python = {
+			pythonPath = ".venv/bin/python",
+		},
+	},
+})
 require("lspconfig").volar.setup({})
 require("lspconfig").ts_ls.setup({})
 require("lspconfig").rust_analyzer.setup({})
