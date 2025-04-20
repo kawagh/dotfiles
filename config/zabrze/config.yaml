@@ -69,3 +69,9 @@ abbrevs:
   - name: ll
     abbr: ll
     snippet: ls -alF
+  - name: lazydocker
+    abbr: ld
+    snippet: lazydocker
+  - name: lazygit
+    abbr: lg
+    snippet: lazygit
