@@ -26,5 +26,5 @@ eval "$(zabrze init --bind-keys)"
 eval "$(gh completion -s zsh)"
 eval "$(uv generate-shell-completion zsh)"
 
-export MENT_EDITOR="vim"
+export MENT_EDITOR="nvim"
 
