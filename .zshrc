@@ -30,4 +30,4 @@ eval "$(task --completion zsh)"
 
 export MENT_EDITOR="nvim"
 export PATH="$HOME/go/bin:$PATH"
-. "/home/kawagh/.deno/env"
+. "$HOME/.deno/env"
