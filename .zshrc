@@ -29,4 +29,4 @@ eval "$(uv generate-shell-completion zsh)"
 eval "$(task --completion zsh)"
 
 export MENT_EDITOR="nvim"
-
+export PATH="$HOME/go/bin:$PATH"
