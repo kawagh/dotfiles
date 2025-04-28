@@ -14,6 +14,7 @@ fi
 if [[ "$(uname)" == "Linux" ]]; then
     export PATH="$HOME/development/flutter/bin:$PATH"
     export SDKMAN_DIR="$HOME/.sdkman"
+    export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 export PATH="$PATH:$HOME/.local/bin"
