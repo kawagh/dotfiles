@@ -95,6 +95,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.swapfile = false
 vim.g.mapleader = " "
 
 vim.api.nvim_create_user_command("PasteAsMarkdownLink", function()
