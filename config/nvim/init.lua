@@ -97,6 +97,18 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.g.mapleader = " "
 
+vim.api.nvim_create_user_command("PasteAsMarkdownLink", function()
+	local url = vim.fn.getreg("+")
+	local result = vim.fn.system("curl -s " .. url)
+	local title = result:match("<title>(.-)</title>")
+	if title then
+		local output = "[" .. title .. "]" .. "(" .. url .. ")"
+		vim.api.nvim_paste(output, false, -1)
+	else
+		print("failed to retrieve title")
+	end
+end, { nargs = 0 })
+
 local function is_inside_git_repository()
 	local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
 	local result = handle:read("*a")
@@ -117,6 +129,7 @@ vim.keymap.set("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "L", "<Plug>(fern-action-expand-tree)")
+vim.keymap.set("n", "<Leader>p", "<cmd>PasteAsMarkdownLink<CR>", { noremap = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
