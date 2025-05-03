@@ -23,6 +23,7 @@ export PATH="$PATH:$HOME/go/bin"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=100000
+export GIT_EDITOR=nvim
 
 eval "$(zabrze init --bind-keys)"
 eval "$(gh completion -s zsh)"
