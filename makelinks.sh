@@ -19,3 +19,6 @@ ln -sfv ${DIR}/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 mkdir -p ~/.config/Code/User
 ln -sfv ${DIR}/config/vscode/settings.json ~/.config/Code/User/settings.json
 ln -sfv ${DIR}/config/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+
+mkdir -p ~/.config/lazydocker
+ln -sfv ${DIR}/config/lazydocker/config.yml ~/.config/lazydocker/config.yml
