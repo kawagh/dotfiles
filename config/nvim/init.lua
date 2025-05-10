@@ -122,6 +122,8 @@ if is_inside_git_repository() then
 else
 	vim.keymap.set("n", "<Leader>f", "<cmd>Files<CR>", { noremap = true })
 end
+
+vim.keymap.set("n", "<F2>", ":edit $MYVIMRC<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>F", "<cmd>Rg<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true })
