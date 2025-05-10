@@ -31,6 +31,16 @@ config.keys = {
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+	{
+		key = "r",
+		mods = "LEADER",
+		action = act.RotatePanes("Clockwise"),
+	},
+	{
+		key = "R",
+		mods = "LEADER",
+		action = act.RotatePanes("CounterClockwise"),
+	},
 }
 
 return config
