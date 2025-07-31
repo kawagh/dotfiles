@@ -26,5 +26,6 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.editContext": false,
   "editor.formatOnSave": true,
 }
