@@ -22,3 +22,6 @@ ln -sfv ${DIR}/config/vscode/keybindings.json ~/.config/Code/User/keybindings.js
 
 mkdir -p ~/.config/lazydocker
 ln -sfv ${DIR}/config/lazydocker/config.yml ~/.config/lazydocker/config.yml
+
+mkdir -p ~/.config/claude
+ln -sfv ${DIR}/config/claude/settings.json ~/.claude/settings.json
