@@ -152,8 +152,32 @@ vim.lsp.config("pyright", {
 	},
 })
 vim.lsp.enable("pyright")
-vim.lsp.enable("volar")
-vim.lsp.enable("ts_ls")
+
+-- https://github.com/vuejs/language-tools/wiki/Neovim
+local vue_ls_config = {}
+local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+local vue_language_server_path = vim.fn.expand("$MASON/packages")
+local vue_plugin = {
+	name = "@vue/typescript-plugin",
+	location = vue_language_server_path,
+	languages = { "vue" },
+	configNamespace = "typescript",
+}
+local vtsls_config = {
+	settings = {
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					vue_plugin,
+				},
+			},
+		},
+	},
+	filetypes = tsserver_filetypes,
+}
+vim.lsp.config("vtsls", vtsls_config)
+vim.lsp.config("vue_ls", vue_ls_config)
+vim.lsp.enable({ "vtsls", "vue_ls" })
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 require("conform").setup({
