@@ -131,7 +131,7 @@ vim.keymap.set("n", "<C-e>", "<cmd>Fern . -drawer -toggle -right<CR>", { noremap
 vim.keymap.set("n", "gd", "<cmd>:lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>")
-vim.keymap.set("n", "L", "<Plug>(fern-action-expand-tree)")
+vim.keymap.set("n", "L", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>p", "<cmd>PasteAsMarkdownLink<CR>", { noremap = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
