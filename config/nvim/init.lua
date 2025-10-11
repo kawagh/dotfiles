@@ -144,17 +144,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("bufferline").setup({})
 require("gitsigns").setup()
 require("mason").setup()
-require("lspconfig").pyright.setup({
+vim.lsp.config("pyright", {
 	settings = {
 		python = {
 			pythonPath = ".venv/bin/python",
 		},
 	},
 })
-require("lspconfig").volar.setup({})
-require("lspconfig").ts_ls.setup({})
-require("lspconfig").rust_analyzer.setup({})
-require("lspconfig").lua_ls.setup({})
+vim.lsp.enable("pyright")
+vim.lsp.enable("volar")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("lua_ls")
 require("conform").setup({
 	formatters_by_ft = {
 		python = { "ruff_format" },
