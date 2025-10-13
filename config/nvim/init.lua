@@ -38,6 +38,7 @@ Plug("https://github.com/ckipp01/stylua-nvim")
 Plug("https://github.com/mattn/emmet-vim")
 Plug("https://github.com/ethancarlsson/nvim-hurl.nvim")
 Plug("https://github.com/stevearc/conform.nvim")
+Plug("https://github.com/andymass/vim-matchup")
 vim.call("plug#end")
 
 vim.fn["ddc#custom#patch_global"]({
