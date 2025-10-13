@@ -10,4 +10,9 @@
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "explorerViewletVisible"
     },
+    {
+        "key": "ctrl+shift+5",
+        "command": "editor.emmet.action.matchTag",
+        "when": "editorLangId == vue"
+    }
 ]
