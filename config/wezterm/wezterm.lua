@@ -31,6 +31,10 @@ config.keys = {
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+	{ key = "H", mods = "LEADER", action = act.AdjustPaneSize({ "Left", 2 }) },
+	{ key = "J", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 2 }) },
+	{ key = "K", mods = "LEADER", action = act.AdjustPaneSize({ "Up", 2 }) },
+	{ key = "L", mods = "LEADER", action = act.AdjustPaneSize({ "Right", 2 }) },
 	{
 		key = "r",
 		mods = "LEADER",
