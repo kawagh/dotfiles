@@ -30,3 +30,6 @@ ln -sfv ${DIR}/config/lazydocker/config.yml ~/.config/lazydocker/config.yml
 
 mkdir -p ~/.config/claude
 ln -sfv ${DIR}/config/claude/settings.json ~/.claude/settings.json
+
+mkdir -p ~/.config/gwq
+ln -sfv ${DIR}/config/gwq/config.toml ~/.config/gwq/config.toml
