@@ -111,6 +111,11 @@ vim.api.nvim_create_user_command("PasteAsMarkdownLink", function()
 	end
 end, { nargs = 0 })
 
+vim.api.nvim_create_user_command("ClipCurrentFile", function()
+	local path = vim.fn.system("git ls-files --full-name " .. vim.fn.expand("%"))
+	vim.fn.setreg("+", path)
+end, {})
+
 local function is_inside_git_repository()
 	local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
 	local result = handle:read("*a")
@@ -134,6 +139,7 @@ vim.keymap.set("n", "gr", "<cmd>:lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "L", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>p", "<cmd>PasteAsMarkdownLink<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>y", "<cmd>ClipCurrentFile<CR>", { noremap = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
