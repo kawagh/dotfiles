@@ -16,6 +16,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     export SDKMAN_DIR="$HOME/.sdkman"
     export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
     export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
+    export MENT_DIR="$HOME/ghq/github.com/kawagh/ment_dir"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 export PATH="$PATH:$HOME/.local/bin"
@@ -31,4 +32,26 @@ eval "$(uv generate-shell-completion zsh)"
 eval "$(task --completion zsh)"
 
 export MENT_EDITOR="nvim"
+
 . "$HOME/.deno/env"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
+eval "$(register-python-argcomplete redi)"
