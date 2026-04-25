@@ -11,7 +11,7 @@ ln -sfv ${DIR}/.tigrc ~/.tigrc
 ln -sfv ${DIR}/.zshrc ~/.zshrc
 
 mkdir -p ~/.config/zabrze
-ln -sfv ${DIR}/config/zabrze/config.yaml ~/.config/zabrze/config.yaml
+ln -sfv ${DIR}/config/zabrze/config.toml ~/.config/zabrze/config.toml
 
 mkdir -p ~/.config/wezterm
 ln -sfv ${DIR}/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua

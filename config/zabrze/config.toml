@@ -1,0 +1,110 @@
+[[snippets]]
+name = "docker"
+trigger = "d"
+snippet = "docker"
+
+# docker context abbrevs
+[[snippets]]
+name = "docker container"
+trigger = "cn"
+snippet = "container"
+global = true
+context = '^docker\s'
+
+[[snippets]]
+name = "docker compose"
+trigger = "cm"
+snippet = "compose"
+global = true
+context = '^docker\s'
+
+[[snippets]]
+name = "git"
+trigger = "g"
+snippet = "git"
+
+[[snippets]]
+name = "ga"
+trigger = "ga"
+snippet = "git add"
+
+[[snippets]]
+name = "gst"
+trigger = "gst"
+snippet = "git status"
+
+[[snippets]]
+name = "gl"
+trigger = "gl"
+snippet = "git log --oneline"
+
+[[snippets]]
+name = "glp"
+trigger = "glp"
+snippet = "git log -p"
+
+[[snippets]]
+name = "gr"
+trigger = "gr"
+snippet = "cd $(git rev-parse --show-toplevel)"
+
+[[snippets]]
+name = "git commit -m"
+trigger = "gcm"
+snippet = "git commit -m '{}'"
+
+[[snippets]]
+name = "git commit --amend"
+trigger = "gca"
+snippet = "git commit --amend"
+
+[[snippets]]
+name = "gd"
+trigger = "gd"
+snippet = "git diff"
+
+[[snippets]]
+name = "gdc"
+trigger = "gdc"
+snippet = "git diff --cached"
+
+# git context abbrevs
+[[snippets]]
+name = "git checkout"
+trigger = "co"
+snippet = "checkout"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git ls-files --others --exclude-standard | xargs git add"
+# git管理下にない新規作成したファイルをaddする
+trigger = "an"
+snippet = "ls-files --others --exclude-standard | xargs git add"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "gg"
+trigger = "gg"
+snippet = "cd $(ghq list -p | fzf)"
+
+[[snippets]]
+name = "ls"
+trigger = "ls"
+snippet = "ls --color=auto"
+
+[[snippets]]
+name = "ll"
+trigger = "ll"
+snippet = "ls -alF"
+
+[[snippets]]
+name = "lazydocker"
+trigger = "ld"
+snippet = "lazydocker"
+
+[[snippets]]
+name = "lazygit"
+trigger = "lg"
+snippet = "lazygit"
