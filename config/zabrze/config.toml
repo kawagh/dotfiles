@@ -19,6 +19,11 @@ global = true
 context = '^docker\s'
 
 [[snippets]]
+name = "redi"
+trigger = "r"
+snippet = "redi"
+
+[[snippets]]
 name = "git"
 trigger = "g"
 snippet = "git"
