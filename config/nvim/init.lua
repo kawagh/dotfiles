@@ -24,15 +24,7 @@ Plug("https://github.com/cohama/lexima.vim")
 Plug("https://github.com/neovim/nvim-lspconfig")
 Plug("https://github.com/williamboman/mason.nvim")
 Plug("https://github.com/vim-denops/denops.vim")
-Plug("https://github.com/Shougo/ddc.vim")
-Plug("https://github.com/Shougo/ddc-ui-native")
-Plug("https://github.com/LumaKernel/ddc-source-file")
-Plug("https://github.com/delphinus/ddc-source-tmux")
-Plug("https://github.com/Shougo/ddc-source-lsp")
-Plug("https://github.com/Shougo/ddc-source-around")
-Plug("https://github.com/Shougo/ddc-filter-matcher_head")
-Plug("https://github.com/Shougo/ddc-filter-sorter_rank")
-Plug("https://github.com/matsui54/denops-popup-preview.vim")
+Plug("https://github.com/Saghen/blink.cmp", { ["tag"] = "v1.*" })
 Plug("https://github.com/kat0h/bufpreview.vim", { ["do"] = "deno task prepare" })
 Plug("https://github.com/ckipp01/stylua-nvim")
 Plug("https://github.com/mattn/emmet-vim")
@@ -41,40 +33,10 @@ Plug("https://github.com/stevearc/conform.nvim")
 Plug("https://github.com/andymass/vim-matchup")
 vim.call("plug#end")
 
-vim.fn["ddc#custom#patch_global"]({
-	ui = "native",
-	sources = {
-		"lsp",
-		"file",
-		"tmux",
-		"around",
-	},
-	sourceOptions = {
-		_ = {
-			sorters = { "sorter_rank" },
-		},
-		lsp = {
-			mark = "[LSP]",
-			forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
-		},
-		tmux = {
-			mark = "[T]",
-			forceCompletionPattern = "\\S/\\S*",
-			matchers = { "matcher_head" },
-		},
-		file = {
-			mark = "[F]",
-			forceCompletionPattern = "\\S/\\S*",
-			matchers = { "matcher_head" },
-		},
-		around = {
-			mark = "[A]",
-			matchers = { "matcher_head" },
-		},
-	},
+require("blink.cmp").setup({
+	completion = { documentation = { auto_show = true } },
+	signature = { enabled = true },
 })
-vim.fn["ddc#enable"]()
-vim.fn["popup_preview#enable"]()
 
 vim.cmd("colorscheme catppuccin")
 
