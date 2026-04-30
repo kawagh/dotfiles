@@ -33,3 +33,5 @@ ln -sfv ${DIR}/config/claude/settings.json ~/.claude/settings.json
 
 mkdir -p ~/.config/gwq
 ln -sfv ${DIR}/config/gwq/config.toml ~/.config/gwq/config.toml
+
+ln -s $(which fdfind) ~/.local/bin/fd
