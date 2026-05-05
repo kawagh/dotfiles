@@ -20,7 +20,6 @@
   },
   "vim.useSystemClipboard": true,
   "vim.highlightedyank.enable": true,
-  "workbench.sideBar.location": "right",
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
