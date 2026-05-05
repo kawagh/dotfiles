@@ -95,6 +95,11 @@ trigger = "gg"
 snippet = "cd $(ghq list -p | fzf)"
 
 [[snippets]]
+name = "gw"
+trigger = "gw"
+snippet = "cd $(git worktree list | awk '{print $1}' | fzf)"
+
+[[snippets]]
 name = "ls"
 trigger = "ls"
 snippet = "ls --color=auto"
