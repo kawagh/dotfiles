@@ -113,14 +113,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("bufferline").setup({})
 require("gitsigns").setup()
 require("mason").setup()
-vim.lsp.config("pyright", {
-	settings = {
-		python = {
-			pythonPath = ".venv/bin/python",
-		},
-	},
-})
-vim.lsp.enable("pyright")
+vim.lsp.enable("zuban")
 
 -- https://github.com/vuejs/language-tools/wiki/Neovim
 local vue_ls_config = {}
