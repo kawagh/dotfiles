@@ -102,6 +102,12 @@ vim.keymap.set("n", "K", "<cmd>:lua vim.lsp.buf.hover()<CR>")
 vim.keymap.set("n", "L", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>p", "<cmd>PasteAsMarkdownLink<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>y", "<cmd>ClipCurrentFile<CR>", { noremap = true })
+vim.keymap.set("n", "]c", function()
+	require("gitsigns").nav_hunk("next")
+end, { noremap = true })
+vim.keymap.set("n", "[c", function()
+	require("gitsigns").nav_hunk("prev")
+end, { noremap = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
