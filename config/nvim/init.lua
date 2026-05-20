@@ -93,6 +93,7 @@ end
 
 vim.keymap.set("n", "<F2>", ":edit $MYVIMRC<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>F", "<cmd>Rg<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>g", "<cmd>GFiles?<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true })
 vim.keymap.set("n", "<C-e>", "<cmd>Fern . -drawer -toggle -reveal=%<CR>", { noremap = true })
