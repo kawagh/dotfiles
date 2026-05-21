@@ -31,6 +31,7 @@ Plug("https://github.com/mattn/emmet-vim")
 Plug("https://github.com/ethancarlsson/nvim-hurl.nvim")
 Plug("https://github.com/stevearc/conform.nvim")
 Plug("https://github.com/andymass/vim-matchup")
+Plug("https://github.com/AlexandrosAlexiou/kotlin.nvim")
 vim.call("plug#end")
 
 require("blink.cmp").setup({
@@ -155,3 +156,4 @@ require("conform").setup({
 		python = { "ruff_format" },
 	},
 })
+require("kotlin").setup({})
