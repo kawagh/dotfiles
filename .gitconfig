@@ -11,3 +11,5 @@
     autostash = true
 [rerere]
     enabled = true
+[push]
+	autoSetupRemote = true
