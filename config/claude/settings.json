@@ -1,9 +1,17 @@
 {
   "permissions": {
     "allow": [
+      "Bash(./gradlew :app:compileDebugKotlin *)",
+      "Bash(./gradlew :app:detekt *)",
+      "Bash(./gradlew detekt *)",
       "Bash(gh issue view)",
       "Bash(gh issue view:*)",
+      "Bash(mise --version)",
+      "Bash(mise ls*)",
       "Bash(redi)",
+      "Bash(skills-ref validate *)",
+      "Bash(task check *)",
+      "Bash(task validate *)",
       "Edit(.)",
       "WebFetch",
       "WebSearch"
