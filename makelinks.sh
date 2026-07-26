@@ -39,3 +39,6 @@ ln -sfv ${DIR}/config/gwq/config.toml ~/.config/gwq/config.toml
 
 mkdir -p ~/.config/mise
 ln -sfv ${DIR}/config/mise/config.toml ~/.config/mise/config.toml
+
+mkdir -p ~/.config/herdr
+ln -sfv ${DIR}/config/herdr/config.toml ~/.config/herdr/config.toml
