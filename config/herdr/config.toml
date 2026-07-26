@@ -1,1 +1,5 @@
 onboarding = false
+
+[keys]
+split_horizontal = "prefix+minus"
+split_vertical = 'prefix+\'
