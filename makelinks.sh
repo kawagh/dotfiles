@@ -34,4 +34,7 @@ ln -sfv ${DIR}/config/claude/settings.json ~/.claude/settings.json
 mkdir -p ~/.config/gwq
 ln -sfv ${DIR}/config/gwq/config.toml ~/.config/gwq/config.toml
 
+mkdir -p ~/.config/mise
+ln -sfv ${DIR}/config/mise/config.toml ~/.config/mise/config.toml
+
 ln -s $(which fdfind) ~/.local/bin/fd
