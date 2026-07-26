@@ -42,7 +42,7 @@
     "command": "ccusage statusline"
   },
   "attribution": {
-      "commit": ""
+    "commit": ""
   },
   "language": "Japanese",
   "tui": "fullscreen",
