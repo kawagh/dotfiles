@@ -1,9 +1,44 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(gh issue view)",
+      "Bash(gh issue view:*)",
+      "Bash(redi)",
+      "Edit(.)",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(.env)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "ccusage statusline"
   },
   "attribution": {
       "commit": ""
-  }
+  },
+  "language": "Japanese",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "tap"
+  },
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": false
 }
