@@ -9,6 +9,7 @@ ln -sfv ${DIR}/.ideavimrc ~/.ideavimrc
 ln -sfv ${DIR}/.gitconfig ~/.gitconfig
 ln -sfv ${DIR}/.tigrc ~/.tigrc
 ln -sfv ${DIR}/.zshrc ~/.zshrc
+ln -sfv ${DIR}/config/sqlite3/.sqliterc ~/.sqliterc
 
 mkdir -p ~/.config/zabrze
 ln -sfv ${DIR}/config/zabrze/config.toml ~/.config/zabrze/config.toml
