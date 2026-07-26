@@ -23,6 +23,9 @@ else
     mkdir -p ~/.config/Code/User
     ln -sfv ${DIR}/config/vscode/settings.json ~/.config/Code/User/settings.json
     ln -sfv ${DIR}/config/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+
+    # Debian/Ubuntu では fd が fdfind という名前で入るため
+    ln -sfv "$(which fdfind)" ~/.local/bin/fd
 fi
 
 mkdir -p ~/.config/lazydocker
@@ -36,5 +39,3 @@ ln -sfv ${DIR}/config/gwq/config.toml ~/.config/gwq/config.toml
 
 mkdir -p ~/.config/mise
 ln -sfv ${DIR}/config/mise/config.toml ~/.config/mise/config.toml
-
-ln -s $(which fdfind) ~/.local/bin/fd
