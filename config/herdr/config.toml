@@ -1,5 +1,6 @@
 onboarding = false
 
 [keys]
+prefix = "ctrl+q"
 split_horizontal = "prefix+minus"
 split_vertical = 'prefix+\'
