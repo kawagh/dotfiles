@@ -24,6 +24,11 @@ trigger = "r"
 snippet = "redi"
 
 [[snippets]]
+name = "reditui"
+trigger = "rt"
+snippet = "redi --tui"
+
+[[snippets]]
 name = "git"
 trigger = "g"
 snippet = "git"
