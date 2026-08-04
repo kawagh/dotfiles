@@ -20,7 +20,8 @@
       "WebSearch"
     ],
     "deny": [
-      "Read(.env)"
+      "Read(.env)",
+      "Read(~/.config/redi/config.toml)"
     ]
   },
   "hooks": {
