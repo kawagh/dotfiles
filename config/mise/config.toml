@@ -9,4 +9,5 @@ trusted_config_paths = [
 "aqua:go-task/task" = "latest"
 "github:Genymobile/scrcpy" = { version = "4.1", extract_all = true, bin_path = "." }
 fzf = "latest"
+hadolint = "latest"
 node = "latest"
