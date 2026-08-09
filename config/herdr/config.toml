@@ -5,3 +5,6 @@ switch_ascii_input_source_in_prefix = true
 prefix = "ctrl+q"
 split_horizontal = "prefix+minus"
 split_vertical = 'prefix+\'
+
+[ui.sound]
+enabled = false
