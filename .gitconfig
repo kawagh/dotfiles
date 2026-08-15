@@ -13,3 +13,16 @@
     enabled = true
 [push]
 	autoSetupRemote = true
+[alias]
+    # wt-prune: ベースブランチにマージ済みの worktree とブランチをまとめて削除する
+    #   git wt-prune       : develop にマージ済みのものを削除
+    #   git wt-prune main  : main にマージ済みのものを削除
+    #   main / master / develop は常に削除対象から除外する
+    wt-prune = "!f() { \
+        base=\"${1:-develop}\"; \
+        git branch --merged \"$base\" --format='%(refname:short) %(worktreepath)' \
+        | awk -v base=\"$base\" 'NF==2 && $1!=base && $1!~/^(main|master|develop)$/ {print $2, $1}' \
+        | while read -r wt br; do \
+            git worktree remove \"$wt\" && git branch -d \"$br\"; \
+        done; \
+    }; f"
