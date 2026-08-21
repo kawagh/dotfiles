@@ -1,11 +1,31 @@
 {
+  "attribution": {
+    "commit": ""
+  },
   "permissions": {
     "allow": [
       "Bash(./gradlew :app:compileDebugKotlin *)",
       "Bash(./gradlew :app:detekt *)",
+      "Bash(./gradlew :shared:compileAndroidMain *)",
+      "Bash(./gradlew :shared:detekt *)",
       "Bash(./gradlew detekt *)",
+      "Bash(codex --version *)",
+      "Bash(codex --version)",
       "Bash(gh issue view)",
       "Bash(gh issue view:*)",
+      "Bash(gh label list *)",
+      "Bash(git fetch origin *)",
+      "Bash(git fetch origin)",
+      "Bash(herdr agent get *)",
+      "Bash(herdr agent list *)",
+      "Bash(herdr agent list)",
+      "Bash(herdr agent read *)",
+      "Bash(herdr pane list *)",
+      "Bash(herdr pane list)",
+      "Bash(herdr pane read *)",
+      "Bash(herdr status *)",
+      "Bash(herdr status)",
+      "Bash(herdr wait *)",
       "Bash(mise --version)",
       "Bash(mise ls*)",
       "Bash(redi issue list *)",
@@ -14,7 +34,10 @@
       "Bash(redi)",
       "Bash(skills-ref validate *)",
       "Bash(task check *)",
+      "Bash(task check:app *)",
       "Bash(task validate *)",
+      "Bash(task where *)",
+      "Bash(task where)",
       "Edit(.)",
       "WebFetch",
       "WebSearch"
@@ -25,6 +48,17 @@
     ]
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/ghq/github.com/kawagh/harness/.rulesync/hooks/block-drawio-url.sh"
+          }
+        ]
+      }
+    ],
     "SessionStart": [
       {
         "matcher": "*",
@@ -42,9 +76,8 @@
     "type": "command",
     "command": "ccusage statusline"
   },
-  "attribution": {
-    "commit": ""
-  },
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {},
   "language": "Japanese",
   "tui": "fullscreen",
   "voice": {
