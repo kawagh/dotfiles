@@ -1,5 +1,4 @@
 onboarding = false
-switch_ascii_input_source_in_prefix = true
 
 [keys]
 prefix = "ctrl+q"
@@ -12,3 +11,6 @@ delivery = "herdr"
 
 [ui.sound]
 enabled = false
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
