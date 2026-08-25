@@ -1,0 +1,85 @@
+#!/usr/bin/python3
+"""stdin の markdown を text/plain と text/html の両方でクリップボードに載せる。
+
+Slack や Teams の入力欄は貼り付け時にまず text/plain を参照するため、
+text/html だけを載せると「クリップボードが空」と判断され何も貼れない。
+xclip は -t を1つしか取れず、X11 のセレクションはオーナーが1プロセスに
+限られるので2回呼んでも上書きになる。そのため GTK でオーナーになる。
+
+Gtk.Clipboard.set_with_data は PyGObject に公開されていないため、
+低レベルの Gtk.selection_* を使っている。
+mise 配下の python には gi が無いので shebang は system python を指す。
+"""
+
+import os
+import subprocess
+import sys
+
+import gi
+
+gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
+
+from gi.repository import Gdk, Gtk  # noqa: E402
+
+PLAIN = 0
+HTML = 1
+
+TARGETS = [
+    ("text/html", HTML),
+    ("UTF8_STRING", PLAIN),
+    ("text/plain;charset=utf-8", PLAIN),
+    ("text/plain", PLAIN),
+    ("STRING", PLAIN),
+    ("TEXT", PLAIN),
+]
+
+
+def main() -> None:
+    markdown = sys.stdin.read()
+    try:
+        html = subprocess.run(
+            ["pandoc", "--from", "gfm", "--to", "html"],
+            input=markdown,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout
+    except FileNotFoundError:
+        sys.exit("mdclip: pandoc が見つかりません")
+    except subprocess.CalledProcessError as e:
+        sys.exit(f"mdclip: pandoc が失敗しました\n{e.stderr}")
+
+    # セレクションのオーナーはプロセスが生き続ける必要がある。
+    # 呼び出し元(nvim)を待たせないよう fork して子だけ残す。
+    if os.fork() != 0:
+        return
+    os.setsid()
+    devnull = os.open(os.devnull, os.O_RDWR)
+    for fd in (0, 1, 2):
+        os.dup2(devnull, fd)
+
+    clipboard = Gdk.Atom.intern("CLIPBOARD", False)
+    window = Gtk.Window()
+    window.realize()
+    for name, info in TARGETS:
+        Gtk.selection_add_target(window, clipboard, Gdk.Atom.intern(name, False), info)
+
+    def on_get(_widget, selection, info, _time):
+        if info == HTML:
+            selection.set(selection.get_target(), 8, html.encode())
+        else:
+            selection.set_text(markdown, -1)
+
+    def on_clear(_widget, _event):
+        Gtk.main_quit()
+        return True
+
+    window.connect("selection-get", on_get)
+    window.connect("selection-clear-event", on_clear)
+    Gtk.selection_owner_set(window, clipboard, Gdk.CURRENT_TIME)
+    Gtk.main()
+
+
+if __name__ == "__main__":
+    main()

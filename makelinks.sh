@@ -11,6 +11,9 @@ ln -sfv ${DIR}/.tigrc ~/.tigrc
 ln -sfv ${DIR}/.zshrc ~/.zshrc
 ln -sfv ${DIR}/config/sqlite3/.sqliterc ~/.sqliterc
 
+mkdir -p ~/.local/bin
+ln -sfv ${DIR}/bin/mdclip ~/.local/bin/mdclip
+
 mkdir -p ~/.config/zabrze
 ln -sfv ${DIR}/config/zabrze/config.toml ~/.config/zabrze/config.toml
 
