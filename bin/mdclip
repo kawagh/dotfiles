@@ -1,31 +1,27 @@
 #!/usr/bin/python3
-"""stdin の markdown を text/plain と text/html の両方でクリップボードに載せる。
+"""stdin の markdown を plain text と HTML の両方でクリップボードに載せる。
 
-Slack や Teams の入力欄は貼り付け時にまず text/plain を参照するため、
-text/html だけを載せると「クリップボードが空」と判断され何も貼れない。
-xclip は -t を1つしか取れず、X11 のセレクションはオーナーが1プロセスに
-限られるので2回呼んでも上書きになる。そのため GTK でオーナーになる。
+Slack や Teams の入力欄は貼り付け時にまず plain text のフレーバーを参照するため、
+HTML だけを載せると「クリップボードが空」と判断され何も貼れない。
+この挙動は Linux でも macOS でも同じ。
 
-Gtk.Clipboard.set_with_data は PyGObject に公開されていないため、
-低レベルの Gtk.selection_* を使っている。
-mise 配下の python には gi が無いので shebang は system python を指す。
+Linux(X11) は xclip が -t を1つしか取れず、X11 のセレクションはオーナーが
+1プロセスに限られるので2回呼んでも上書きになる。そのため GTK でオーナーになる。
+Gtk.Clipboard.set_with_data は PyGObject に公開されていないので
+低レベルの Gtk.selection_* を使う。mise 配下の python には gi が無いため
+shebang は system python を指している。
+
+macOS は osascript の record 形式で両フレーバーを同時に渡せる。
 """
 
 import os
 import subprocess
 import sys
 
-import gi
-
-gi.require_version("Gtk", "3.0")
-gi.require_version("Gdk", "3.0")
-
-from gi.repository import Gdk, Gtk  # noqa: E402
-
 PLAIN = 0
 HTML = 1
 
-TARGETS = [
+X11_TARGETS = [
     ("text/html", HTML),
     ("UTF8_STRING", PLAIN),
     ("text/plain;charset=utf-8", PLAIN),
@@ -35,10 +31,9 @@ TARGETS = [
 ]
 
 
-def main() -> None:
-    markdown = sys.stdin.read()
+def to_html(markdown: str) -> str:
     try:
-        html = subprocess.run(
+        return subprocess.run(
             ["pandoc", "--from", "gfm", "--to", "html"],
             input=markdown,
             capture_output=True,
@@ -49,6 +44,28 @@ def main() -> None:
         sys.exit("mdclip: pandoc が見つかりません")
     except subprocess.CalledProcessError as e:
         sys.exit(f"mdclip: pandoc が失敗しました\n{e.stderr}")
+
+
+def copy_darwin(markdown: str, html: str) -> None:
+    script = (
+        "set the clipboard to {"
+        f"«class utf8»:«data utf8{markdown.encode().hex()}», "
+        f"«class HTML»:«data HTML{html.encode().hex()}»"
+        "}"
+    )
+    try:
+        subprocess.run(["osascript", "-e", script], check=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        sys.exit(f"mdclip: osascript が失敗しました\n{e.stderr.decode()}")
+
+
+def copy_x11(markdown: str, html: str) -> None:
+    import gi
+
+    gi.require_version("Gtk", "3.0")
+    gi.require_version("Gdk", "3.0")
+
+    from gi.repository import Gdk, Gtk
 
     # セレクションのオーナーはプロセスが生き続ける必要がある。
     # 呼び出し元(nvim)を待たせないよう fork して子だけ残す。
@@ -62,7 +79,7 @@ def main() -> None:
     clipboard = Gdk.Atom.intern("CLIPBOARD", False)
     window = Gtk.Window()
     window.realize()
-    for name, info in TARGETS:
+    for name, info in X11_TARGETS:
         Gtk.selection_add_target(window, clipboard, Gdk.Atom.intern(name, False), info)
 
     def on_get(_widget, selection, info, _time):
@@ -79,6 +96,15 @@ def main() -> None:
     window.connect("selection-clear-event", on_clear)
     Gtk.selection_owner_set(window, clipboard, Gdk.CURRENT_TIME)
     Gtk.main()
+
+
+def main() -> None:
+    markdown = sys.stdin.read()
+    html = to_html(markdown)
+    if sys.platform == "darwin":
+        copy_darwin(markdown, html)
+    else:
+        copy_x11(markdown, html)
 
 
 if __name__ == "__main__":
