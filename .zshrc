@@ -57,5 +57,7 @@ export PATH=$HOME/.opencode/bin:$PATH
 eval "$(register-python-argcomplete redi)"
 eval "$(mise activate zsh)"
 
+source <(jj util completion zsh)
+
 # ctrl+T, ctrl+R
 source <(fzf --zsh)
