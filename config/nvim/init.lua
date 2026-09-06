@@ -151,9 +151,11 @@ vim.lsp.enable({ "vtsls", "vue_ls" })
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("gopls")
+vim.lsp.enable("gleam")
 require("conform").setup({
 	formatters_by_ft = {
 		python = { "ruff_format" },
+		gleam = { "gleam" },
 	},
 })
 require("kotlin").setup({})
