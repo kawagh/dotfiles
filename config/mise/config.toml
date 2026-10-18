@@ -5,9 +5,6 @@ trusted_config_paths = [
   "~/.herdr/worktrees",
 ]
 
+# CLI ツールは aqua で入れる (config/aqua/aqua.yaml)。mise は言語ランタイムだけを入れる
 [tools]
-"aqua:go-task/task" = "latest"
-"github:Genymobile/scrcpy" = { version = "4.1", extract_all = true, bin_path = "." }
-fzf = "latest"
-hadolint = "latest"
 node = "latest"

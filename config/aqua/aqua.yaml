@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+# どのディレクトリでも使う CLI ツール。AQUA_GLOBAL_CONFIG で読み込む
+# バージョンは aqua up で上げる
+registries:
+- type: standard
+  ref: v4.575.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: junegunn/fzf@v0.74.5
+- name: go-task/task@v3.54.0
+- name: hadolint/hadolint@v2.15.1
+- name: Genymobile/scrcpy@v4.1
