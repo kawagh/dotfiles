@@ -1,0 +1,23 @@
+# config/aqua/aqua.yaml のツールを更新する PR を Renovate に作らせる
+# GitHub App を入れずに、GITHUB_TOKEN で Renovate を動かす
+name: Renovate
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: renovatebot/github-action@v46.3.8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}

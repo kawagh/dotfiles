@@ -17,5 +17,7 @@ aqua i -a -l
 aqua -c ~/.config/aquaproj-aqua/aqua.yaml up
 ```
 
+毎週月曜に [Renovate](./.github/workflows/renovate.yml) が aqua.yaml を更新する PR を作る。マージしたら pull して `aqua i -a -l` を実行する。
+
 言語ランタイム (node など) は mise で入れる。
 
