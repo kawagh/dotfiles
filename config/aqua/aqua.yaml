@@ -9,5 +9,5 @@ packages:
 - name: junegunn/fzf@v0.74.5
 - name: go-task/task@v3.54.0
 - name: hadolint/hadolint@v2.15.1
-- name: Genymobile/scrcpy@v4.1
+- name: Genymobile/scrcpy@v5.0.1
 - name: pnpm/pnpm@v12.14.0
