@@ -11,5 +11,11 @@ go install github.com/aquaproj/aqua/v2/cmd/aqua@latest
 aqua i -a -l
 ```
 
-バージョンを上げるときは `aqua up` を実行して aqua.yaml をコミットする。言語ランタイム (node など) は mise で入れる。
+バージョンを上げるときは次を実行して aqua.yaml をコミットする。`aqua up` はカレントディレクトリから一番近い aqua.yaml だけを更新するため、グローバル設定は `-c` で指定する。
+
+```sh
+aqua -c ~/.config/aquaproj-aqua/aqua.yaml up
+```
+
+言語ランタイム (node など) は mise で入れる。
 

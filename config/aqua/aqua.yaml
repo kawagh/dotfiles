@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 # どのディレクトリでも使う CLI ツール。AQUA_GLOBAL_CONFIG で読み込む
-# バージョンは aqua up で上げる
+# バージョンは aqua -c ~/.config/aquaproj-aqua/aqua.yaml up で上げる。-c が無いとグローバル設定は対象にならない
 registries:
 - type: standard
   ref: v4.575.0 # renovate: depName=aquaproj/aqua-registry
